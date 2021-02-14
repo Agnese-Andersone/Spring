@@ -10,4 +10,8 @@ public class DummyLogger implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("Hello!");
     }
+    public void sayHello() {
+        System.out.println("hello from DummyLogger");
+    }
+
 }
