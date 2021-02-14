@@ -5,6 +5,6 @@ import java.util.stream.Collectors;
 
 public class StringUtil {
     public String formSentence(final List<String> words) {
-        return words.stream().collect(Collectors.joining(" ", "", "."));
+        return words.stream().collect(Collectors.joining(", ", "", "."));
     }
 }

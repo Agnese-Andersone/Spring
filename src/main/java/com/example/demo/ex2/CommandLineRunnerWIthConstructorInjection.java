@@ -8,11 +8,15 @@ import org.springframework.stereotype.Component;
 @Component
 
 public class CommandLineRunnerWIthConstructorInjection implements CommandLineRunner {
-    @Autowired
+
     private DummyLogger dummyLogger;
+    @Autowired
+    public CommandLineRunnerWIthConstructorInjection(DummyLogger dummyLogger) {
+        this.dummyLogger = dummyLogger;
+    }
 
     @Override
     public void run(final String... args) throws Exception {
-        dummyLogger.sayHello();
+        dummyLogger.sayHello("Constructor");
     }
 }

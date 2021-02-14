@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class UtilConfiguration {
-    @Bean
+    @Bean("dummyLogger4")
     public DummyLogger dummyLogger() {
         return new DummyLogger();
     }
