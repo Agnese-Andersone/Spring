@@ -22,8 +22,8 @@ public class WelcomeMessageLogger implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (this.shouldLog) {
-            log.info(this.text);
-            System.out.println(this.text);
+            log.info(this.text); //lombok versija soutam
+            System.out.println(this.text); //otrreiz izprintē, jo ir arī šis
         }
     }
 }
