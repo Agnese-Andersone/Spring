@@ -12,7 +12,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     Book findByISBN(String ISBN);
     Book findByISBNAndAuthor(String ISBN, String author);
     List <Book> findTop3ByAuthorOrderByPagesNumDesc(String author, int pagesNum);
-    List <Book> findByTitleStartsWith(String title);
+    List <Book> findByTitleStartingWith(String title);
     List <Book> findByPagesNumIsBetween(int from, int to);
     @Query(value = "SELECT b FROM books b WHERE b.pagesNum > :x")
     List <Book> findWherePagesNumIsGreaterThanX(@Param("x") Integer x);

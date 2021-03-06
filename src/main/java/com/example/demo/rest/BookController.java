@@ -163,7 +163,7 @@ public class BookController {
                 .author("Bob")
                 .build();
         bookRepository.saveAll(List.of(book, book2, book3, book4));
-        List <Book> resultgetLikeTitle = bookRepository.findByTitleStartsWith(title);
+        List <Book> resultgetLikeTitle = bookRepository.findByTitleStartingWith(title);
         return resultgetLikeTitle;
     }
     @GetMapping("/book/pagesNumBetween/{min}/{max}")
