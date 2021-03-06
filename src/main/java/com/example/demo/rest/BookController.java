@@ -163,7 +163,7 @@ public class BookController {
                 .author("Bob")
                 .build();
         bookRepository.saveAll(List.of(book, book2, book3, book4));
-        List <Book> resultLikeTitle = bookRepository.findByTitleStartsWith(title);
-        return resultLikeTitle;
+        List <Book> resultgetLikeTitle = bookRepository.findByTitleStartsWith(title);
+        return resultgetLikeTitle;
     }
 }
