@@ -136,4 +136,34 @@ public class BookController {
         List <Book> resultThreeThickestByAuthor = bookRepository.findTop3ByAuthorOrderByPagesNumDesc(author, pagesNum);
         return resultThreeThickestByAuthor;
     }
+    @GetMapping("/book/getLikeTitle/{title}")
+    public List <Book> getLikeTitle(@PathVariable("title") String title) {
+        Book book = Book.builder()
+                .ISBN("cvb")
+                .pagesNum(235)
+                .title("Title1")
+                .author("aaa")
+                .build();
+        Book book2 = Book.builder()
+                .ISBN("rrd")
+                .pagesNum(32)
+                .title("Title1")
+                .author("aaa")
+                .build();
+        Book book3 = Book.builder()
+                .ISBN("asv")
+                .pagesNum(25)
+                .title("names")
+                .author("aaa")
+                .build();
+        Book book4 = Book.builder()
+                .ISBN("aaa")
+                .pagesNum(425)
+                .title("CleanCode")
+                .author("Bob")
+                .build();
+        bookRepository.saveAll(List.of(book, book2, book3, book4));
+        List <Book> resultLikeTitle = bookRepository.findByTitleStartsWith(title);
+        return resultLikeTitle;
+    }
 }
