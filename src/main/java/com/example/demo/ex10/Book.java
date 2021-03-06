@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+//@Data - jau ir iekšā visi geteri un seteri, to string un konstruktori utt.
 @Entity(name="books")
 @Getter
 @Setter

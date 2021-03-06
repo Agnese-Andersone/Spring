@@ -166,4 +166,65 @@ public class BookController {
         List <Book> resultgetLikeTitle = bookRepository.findByTitleStartsWith(title);
         return resultgetLikeTitle;
     }
+    @GetMapping("/book/pagesNumBetween/{min}/{max}")
+    public List <Book> getPagesNumBetween(@PathVariable("min") int min,
+                                          @PathVariable("max") int max) {
+        Book book = Book.builder()
+                .ISBN("cvb")
+                .pagesNum(235)
+                .title("Title1")
+                .author("aaa")
+                .build();
+        Book book2 = Book.builder()
+                .ISBN("rrd")
+                .pagesNum(32)
+                .title("Title1")
+                .author("aaa")
+                .build();
+        Book book3 = Book.builder()
+                .ISBN("asv")
+                .pagesNum(25)
+                .title("names")
+                .author("aaa")
+                .build();
+        Book book4 = Book.builder()
+                .ISBN("aaa")
+                .pagesNum(425)
+                .title("CleanCode")
+                .author("Bob")
+                .build();
+        bookRepository.saveAll(List.of(book, book2, book3, book4));
+        List <Book> resultBetween = bookRepository.findByPagesNumIsBetween(min, max);
+        return resultBetween;
+    }
+    @GetMapping("/book/getBooksGraterThanX/{x}")
+    public List <Book> getGreater(@PathVariable("x") int x) {
+        Book book = Book.builder()
+                .ISBN("cvb")
+                .pagesNum(235)
+                .title("Title1")
+                .author("aaa")
+                .build();
+        Book book2 = Book.builder()
+                .ISBN("rrd")
+                .pagesNum(32)
+                .title("Title1")
+                .author("aaa")
+                .build();
+        Book book3 = Book.builder()
+                .ISBN("asv")
+                .pagesNum(25)
+                .title("names")
+                .author("aaa")
+                .build();
+        Book book4 = Book.builder()
+                .ISBN("aaa")
+                .pagesNum(425)
+                .title("CleanCode")
+                .author("Bob")
+                .build();
+        bookRepository.saveAll(List.of(book, book2, book3, book4));
+        List <Book> resultgetGreaterThan = bookRepository.findWherePagesNumIsGreaterThanX(x);
+        return resultgetGreaterThan;
+    }
 }
