@@ -18,19 +18,62 @@ public class BookController {
     @GetMapping("/book/{title}")
     public List<Book> generateBook(@PathVariable("title") String title){
         Book book = Book.builder()
-                .ISBN("")
+                .ISBN("cvb")
                 .pagesNum(235)
-                .title("aasasas")
+                .title("Title1")
                 .author("gasdkagksgd")
                 .build();
         Book book2 = Book.builder()
-                .ISBN("")
-                .pagesNum(2325)
-                .title("aasasas")
+                .ISBN("rrd")
+                .pagesNum(32)
+                .title("Title1")
                 .author("gasdkagksgd")
                 .build();
-        bookRepository.saveAll(List.of(book, book2));
+        Book book3 = Book.builder()
+                .ISBN("asv")
+                .pagesNum(25)
+                .title("names")
+                .author("gsgd")
+                .build();
+        Book book4 = Book.builder()
+                .ISBN("aaa")
+                .pagesNum(125)
+                .title("CleanCode")
+                .author("Bob")
+                .build();
+        bookRepository.saveAll(List.of(book, book2, book3, book4));
         List<Book> result = bookRepository.findByTitle(title);
         return result;
+    }
+
+    @GetMapping("/book/byISBN/{ISBN}")
+    public Book generateBook1(@PathVariable("ISBN") String ISBN) {
+        Book book = Book.builder()
+                .ISBN("cvb")
+                .pagesNum(235)
+                .title("Title1")
+                .author("gasdkagksgd")
+                .build();
+        Book book2 = Book.builder()
+                .ISBN("rrd")
+                .pagesNum(32)
+                .title("Title1")
+                .author("gasdkagksgd")
+                .build();
+        Book book3 = Book.builder()
+                .ISBN("asv")
+                .pagesNum(25)
+                .title("names")
+                .author("gsgd")
+                .build();
+        Book book4 = Book.builder()
+                .ISBN("aaa")
+                .pagesNum(425)
+                .title("CleanCode")
+                .author("Bob")
+                .build();
+        bookRepository.saveAll(List.of(book, book2, book3, book4));
+        Book resultISBN = bookRepository.findByISBN(ISBN);
+        return resultISBN;
     }
 }
