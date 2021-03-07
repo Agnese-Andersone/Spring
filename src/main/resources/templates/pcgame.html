@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PCGame</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container my-5">
+    <h2 class="mb-5" th:text="${createMessage}"></h2>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="#" th:action="@{/saveGame}" th:object="${pcGameForm}" method="post">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="title" class="col-form-label">Title</label>
+                        <input type="text" th:field="${pcGameForm.title}" class="form-control" id="title" placeholder="Title">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="producer" class="col-form-label">Producer</label>
+                        <input type="text" th:field="${pcGameForm.producer}" class="form-control" id="producer"
+                               placeholder="Producer">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <input type="submit" class="btn btn-primary" value="Save game">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
